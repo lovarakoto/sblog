@@ -7,13 +7,31 @@
         <h1>Contact sblog</h1>
     </header>
 
-    {% if app.session.flashbag.get('blogger-notice') %}
+    {% for flashMessage in app.session.flashbag.get('blogger-notice') %}
         <div class="blogger-notice">
-            {{ app.session.flash('blogger-notice') }}
+            {{ flashMessage }}
         </div>
-    {% endif %}
+    {% endfor %}
 
     <p>Want to contact sblog?</p>
 
+    {{ form_start(
+                    form, 
+                    {'attr': {'class': 'blogger', 'action': path('BloggerBlogBundle_contact'), 'method': 'POST' }}
+                ) 
+    }}  
+
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.body) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+
+    {{ form_end(form) }}
 
 {% endblock %}
