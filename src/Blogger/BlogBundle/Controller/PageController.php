@@ -12,18 +12,15 @@ class PageController extends Controller
 {
     public function indexAction()
     {
-        // $em = $this->getDoctrine()
-        //            ->getManager();
+        $em = $this->getDoctrine()
+                   ->getManager();
 
-        // $blogs = $em->getRepository('BloggerBlogBundle:Blog')
-        //             ->getLatestBlogs();
+        $blogs = $em->getRepository('BloggerBlogBundle:Blog')
+                    ->getLatestBlogs();
 
-        // return $this->render('BloggerBlogBundle:Page:index.html.twig', array(
-        //     'blogs' => $blogs
-        // ));
-
-        // partie 1
-        return $this->render('BloggerBlogBundle:Page:index.html.twig');
+        return $this->render('BloggerBlogBundle:Page:index.html.twig', array(
+            'blogs' => $blogs
+        ));
     }
     
     public function aboutAction()
