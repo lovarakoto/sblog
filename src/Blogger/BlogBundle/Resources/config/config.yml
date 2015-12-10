@@ -2,3 +2,4 @@
 # blogger_blog.emails.contact_email: symsym@yopmail.com
 parameters:
     blogger_blog.emails.contact_email: symblog55@gmail.com
+    blogger_blog.comments.latest_comment_limit: 10
