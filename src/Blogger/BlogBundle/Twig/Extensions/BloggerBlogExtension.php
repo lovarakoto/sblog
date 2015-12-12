@@ -22,17 +22,17 @@ class BloggerBlogExtension extends \Twig_Extension
         {
             // Seconds
             $time = $delta;
-            $duration = $time . " second" . (($time > 1) ? "s" : "") . " ago";
+            $duration = $time . " second" . (($time === 0 || $time > 1) ? "s" : "") . " ago";
         }
-        else if ($delta <= 3600)
+        else if ($delta < 3600)
         {
-            // Mins
+            // Minutes
             $time = floor($delta / 60);
             $duration = $time . " minute" . (($time > 1) ? "s" : "") . " ago";
         }
-        else if ($delta <= 86400)
+        else if ($delta < 86400)
         {
-            // Hours
+            // Heures
             $time = floor($delta / 3600);
             $duration = $time . " hour" . (($time > 1) ? "s" : "") . " ago";
         }
